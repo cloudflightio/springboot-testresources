@@ -50,7 +50,7 @@ subprojects {
                                 url.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
                             }
                         }
-                        inceptionYear.set("2022")
+                        inceptionYear.set("2023")
                         organization {
                             name.set("Cloudflight")
                             url.set("https://cloudflight.io")
