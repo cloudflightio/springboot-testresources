@@ -1,0 +1,58 @@
+name: Publish to Maven Central
+
+on:
+  workflow_dispatch:
+    inputs:
+      scope:
+        description: 'the scope of the version'
+        required: true
+        default: 'patch'
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+      - name: Validate Gradle wrapper
+        uses: gradle/wrapper-validation-action@v1
+      - name : Retrieve module version from Reckon
+        run: echo "VERSION_NAME=$(${{github.workspace}}/gradlew -q clfPrintVersion -Preckon.stage=final -Preckon.scope=${{ inputs.scope }})" >> $GITHUB_OUTPUT
+        id: retrieve_version
+      - name: Publish module version to Github Step Summary
+        run: |
+          echo "# ${{steps.retrieve_version.outputs.VERSION_NAME}}" >> $GITHUB_STEP_SUMMARY
+      - name: Publish and Create Tag
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: check reckonTagPush publishToSonatype closeAndReleaseSonatypeStagingRepository -Preckon.stage=final -Preckon.scope=${{ inputs.scope }}
+        env:
+          MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
+          MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
+          PGP_SECRET: ${{ secrets.PGP_SECRET }}
+          PGP_PASSPHRASE: ${{ secrets.PGP_PASSPHRASE }}
+      - name: Publish Test Report
+        uses: mikepenz/action-junit-report@v3
+        if: always() # always run even if the previous step fails
+        with:
+          report_paths: '**/build/test-results/test/TEST-*.xml'
+          include_passed: true
+      - name: Create Release on GitHub
+        uses: softprops/action-gh-release@v1
+        with:
+          name: ${{steps.retrieve_version.outputs.VERSION_NAME}}
+          tag_name: ${{steps.retrieve_version.outputs.VERSION_NAME}}
+          generate_release_notes: true
+          append_body: true

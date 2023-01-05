@@ -1,0 +1,18 @@
+[versions]
+micronaut-testresources = "1.2.3"
+spring-boot = "3.0.1"
+junit = "5.8.1"
+
+[libraries]
+
+micronaut-testresources-client = { module = "io.micronaut.testresources:micronaut-test-resources-client", version.ref = "micronaut-testresources" }
+micronaut-testresources-testcontainers = { module = "io.micronaut.testresources:micronaut-test-resources-testcontainers", version.ref = "micronaut-testresources" }
+
+spring-boot = { module = "org.springframework.boot:spring-boot", version.ref = "spring-boot" }
+
+testcontainers-mariadb = { module = "org.testcontainers:mariadb", version = "" }
+
+jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit" }
+jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit" }
+
+assertj = { module = "org.assertj:assertj-core", version = "3.23.1" }
