@@ -9,8 +9,9 @@ include("springboot-testresources-minio")
 include("springboot-testresources-jdbc")
 include("springboot-testresources-jdbc:springboot-testresources-jdbc-mariadb")
 include("springboot-testresources-jdbc:springboot-testresources-jdbc-postgres")
+include("springboot-testresources-redis")
 
 include("testprojects:jdbc:mariadb")
 include("testprojects:jdbc:postgres")
 include("testprojects:minio")
-
+include("testprojects:redis")

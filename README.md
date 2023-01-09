@@ -277,3 +277,17 @@ dependencies {
     * `minio.access-key`
     * `minio.secret-key`
     * `minio.region`
+
+## Redis
+
+* **Module-ID**: redis
+* **Default-Image**: redis
+
+````kotlin
+dependencies {
+    testResourcesImplementation ("io.cloudflight.testresources.springboot:springboot-testresources-redis:0.0.3")
+}
+````
+
+* **Provided properties**:
+  * `spring.data.redis.url`
