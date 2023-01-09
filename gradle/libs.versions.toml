@@ -10,8 +10,6 @@ micronaut-testresources-testcontainers = { module = "io.micronaut.testresources:
 
 spring-boot = { module = "org.springframework.boot:spring-boot", version.ref = "spring-boot" }
 
-testcontainers-mariadb = { module = "org.testcontainers:mariadb", version = "" }
-
 jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit" }
 jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit" }
 

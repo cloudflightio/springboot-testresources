@@ -243,6 +243,24 @@ dependencies {
   * `spring.datasource.password`
   * `spring.datasource.driver-class-name`
 
+## Postgres
+
+* **Module-ID**: postgres
+* **Default-Image**: postgres
+
+````kotlin
+dependencies {
+    testResourcesImplementation ("io.cloudflight.testresources.springboot:springboot-testresources-jdbc-postgres:0.0.3")
+}
+````
+
+* **Provided properties**:
+  * `spring.datasource.url`
+  * `spring.datasource.username`
+  * `spring.datasource.password`
+  * `spring.datasource.driver-class-name`
+
+
 ## MinIO
 
 * **Module-ID**: minio
