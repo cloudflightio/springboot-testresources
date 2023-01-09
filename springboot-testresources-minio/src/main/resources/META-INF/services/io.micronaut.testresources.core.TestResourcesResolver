@@ -1,1 +1,1 @@
-io.cloudflight.testresources.springboot.MinioTestResourcesProvider
+io.cloudflight.testresources.springboot.minio.MinioTestResourcesProvider

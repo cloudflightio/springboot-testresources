@@ -1,4 +1,4 @@
-package io.cloudflight.testresources.springboot;
+package io.cloudflight.testresources.springboot.jdbc.mariadb;
 
 import org.testcontainers.containers.MariaDBContainer;
 import org.testcontainers.utility.DockerImageName;

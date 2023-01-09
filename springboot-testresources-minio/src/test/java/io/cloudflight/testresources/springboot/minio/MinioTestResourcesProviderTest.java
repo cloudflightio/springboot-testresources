@@ -1,5 +1,6 @@
-package io.cloudflight.testresources.springboot;
+package io.cloudflight.testresources.springboot.minio;
 
+import io.cloudflight.testresources.springboot.minio.MinioTestResourcesProvider;
 import org.junit.jupiter.api.Test;
 
 import java.util.Collections;

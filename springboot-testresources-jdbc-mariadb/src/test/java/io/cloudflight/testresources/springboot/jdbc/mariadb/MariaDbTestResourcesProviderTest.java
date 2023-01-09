@@ -1,5 +1,6 @@
-package io.cloudflight.testresources.springboot;
+package io.cloudflight.testresources.springboot.jdbc.mariadb;
 
+import io.cloudflight.testresources.springboot.jdbc.mariadb.MariaDbTestResourcesProvider;
 import org.junit.jupiter.api.Test;
 
 import java.util.Collections;

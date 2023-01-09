@@ -1,4 +1,4 @@
-package io.cloudflight.testresources.springboot;
+package io.cloudflight.testresources.springboot.minio;
 
 import io.micronaut.testresources.testcontainers.AbstractTestContainersProvider;
 import org.testcontainers.containers.GenericContainer;
