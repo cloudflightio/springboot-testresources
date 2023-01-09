@@ -2,6 +2,7 @@ plugins {
     `maven-publish`
     id("io.github.gradle-nexus.publish-plugin") version "1.1.0"
     signing
+    id("io.micronaut.test-resources") version "3.6.7" apply (false)
 }
 
 description = "Test-Resources for Spring Boot"
@@ -19,65 +20,72 @@ subprojects {
         mavenCentral()
     }
 
-    plugins.apply(MavenPublishPlugin::class)
-    plugins.apply(SigningPlugin::class)
+    if (!this.path.startsWith(":testprojects")) {
+        plugins.apply(MavenPublishPlugin::class)
+        plugins.apply(SigningPlugin::class)
+    }
 
     afterEvaluate {
 
-        if (!name.endsWith("-client")) {
+        if (this.subprojects.isEmpty()) {
             dependencies {
-                "implementation"(libs.micronaut.testresources.testcontainers)
+                "testImplementation"(libs.jupiter.api)
+                "testRuntimeOnly"(libs.jupiter.engine)
+                "testImplementation"(libs.assertj)
             }
         }
 
-        dependencies {
-            "testImplementation"(libs.jupiter.api)
-            "testRuntimeOnly"(libs.jupiter.engine)
-            "testImplementation"(libs.assertj)
-        }
+        if (!this.path.startsWith(":testprojects")) {
 
-        configure<PublishingExtension> {
-            publications {
-                create<MavenPublication>("maven") {
-                    from(components["java"])
-                    pom {
-                        name.set(project.name)
-                        description.set(project.description)
-                        url.set("https://github.com/cloudflightio/springboot-testresources")
-                        licenses {
-                            license {
-                                name.set("The Apache License, Version 2.0")
-                                url.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
-                            }
-                        }
-                        inceptionYear.set("2023")
-                        organization {
-                            name.set("Cloudflight")
-                            url.set("https://cloudflight.io")
-                        }
-                        developers {
-                            developer {
-                                id.set("cloudflight")
-                                name.set("Cloudflight Team")
-                                email.set("opensource@cloudflight.io")
-                            }
-                        }
-                        scm {
-                            connection.set("scm:ggit@github.com:cloudflightio/springboot-testresources.git")
-                            developerConnection.set("scm:git@github.com:cloudflightio/springboot-testresources.git")
+            if (!name.endsWith("-client")) {
+                dependencies {
+                    "implementation"(libs.micronaut.testresources.testcontainers)
+                }
+            }
+
+            configure<PublishingExtension> {
+                publications {
+                    create<MavenPublication>("maven") {
+                        from(components["java"])
+                        pom {
+                            name.set(project.name)
+                            description.set(project.description)
                             url.set("https://github.com/cloudflightio/springboot-testresources")
+                            licenses {
+                                license {
+                                    name.set("The Apache License, Version 2.0")
+                                    url.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
+                                }
+                            }
+                            inceptionYear.set("2023")
+                            organization {
+                                name.set("Cloudflight")
+                                url.set("https://cloudflight.io")
+                            }
+                            developers {
+                                developer {
+                                    id.set("cloudflight")
+                                    name.set("Cloudflight Team")
+                                    email.set("opensource@cloudflight.io")
+                                }
+                            }
+                            scm {
+                                connection.set("scm:ggit@github.com:cloudflightio/springboot-testresources.git")
+                                developerConnection.set("scm:git@github.com:cloudflightio/springboot-testresources.git")
+                                url.set("https://github.com/cloudflightio/springboot-testresources")
+                            }
                         }
                     }
                 }
             }
-        }
 
-        configure<SigningExtension> {
-            setRequired {
-                System.getenv("PGP_SECRET") != null
+            configure<SigningExtension> {
+                setRequired {
+                    System.getenv("PGP_SECRET") != null
+                }
+                useInMemoryPgpKeys(System.getenv("PGP_SECRET"), System.getenv("PGP_PASSPHRASE"))
+                sign(publishing.publications.getByName("maven"))
             }
-            useInMemoryPgpKeys(System.getenv("PGP_SECRET"), System.getenv("PGP_PASSPHRASE"))
-            sign(publishing.publications.getByName("maven"))
         }
     }
 }

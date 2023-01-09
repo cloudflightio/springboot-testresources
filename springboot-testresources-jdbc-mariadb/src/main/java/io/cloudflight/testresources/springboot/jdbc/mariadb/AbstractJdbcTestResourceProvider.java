@@ -1,4 +1,4 @@
-package io.cloudflight.testresources.springboot;
+package io.cloudflight.testresources.springboot.jdbc.mariadb;
 
 import io.micronaut.testresources.testcontainers.AbstractTestContainersProvider;
 import org.testcontainers.containers.JdbcDatabaseContainer;

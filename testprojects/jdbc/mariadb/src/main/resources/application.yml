@@ -1,0 +1,9 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+
+test-resources:
+  containers:
+    mariadb:
+      image-name: mariadb:10.3
