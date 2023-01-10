@@ -233,7 +233,7 @@ This will create a MariaDB container based on `mariadb:10.3` with the default us
 
 ````kotlin
 dependencies {
-    testResourcesImplementation ("io.cloudflight.testresources.springboot:springboot-testresources-jdbc-mariadb:0.0.2")
+    testResourcesImplementation ("io.cloudflight.testresources.springboot:springboot-testresources-jdbc-mariadb:0.1.1")
 }
 ````
 
@@ -250,7 +250,7 @@ dependencies {
 
 ````kotlin
 dependencies {
-    testResourcesImplementation ("io.cloudflight.testresources.springboot:springboot-testresources-jdbc-postgres:0.0.3")
+    testResourcesImplementation ("io.cloudflight.testresources.springboot:springboot-testresources-jdbc-postgres:0.1.1")
 }
 ````
 
@@ -268,7 +268,7 @@ dependencies {
 
 ````kotlin
 dependencies {
-    testResourcesImplementation ("io.cloudflight.testresources.springboot:springboot-testresources-minio:0.0.2")
+    testResourcesImplementation ("io.cloudflight.testresources.springboot:springboot-testresources-minio:0.1.1")
 }
 ````
 
@@ -285,7 +285,7 @@ dependencies {
 
 ````kotlin
 dependencies {
-    testResourcesImplementation ("io.cloudflight.testresources.springboot:springboot-testresources-rabbitmq:0.0.3")
+    testResourcesImplementation ("io.cloudflight.testresources.springboot:springboot-testresources-rabbitmq:0.1.1")
 }
 ````
 
@@ -302,7 +302,7 @@ dependencies {
 
 ````kotlin
 dependencies {
-    testResourcesImplementation ("io.cloudflight.testresources.springboot:springboot-testresources-redis:0.0.3")
+    testResourcesImplementation ("io.cloudflight.testresources.springboot:springboot-testresources-redis:0.1.1")
 }
 ````
 
