@@ -278,6 +278,23 @@ dependencies {
     * `minio.secret-key`
     * `minio.region`
 
+## RabbitMQ
+
+* **Module-ID**: rabbitmq
+* **Default-Image**: rabbitmq
+
+````kotlin
+dependencies {
+    testResourcesImplementation ("io.cloudflight.testresources.springboot:springboot-testresources-rabbitmq:0.0.3")
+}
+````
+
+* **Provided properties**:
+  * `spring.rabbitmq.host`
+  * `spring.rabbitmq.port`
+  * `spring.rabbitmq.username`
+  * `spring.rabbitmq.password`
+
 ## Redis
 
 * **Module-ID**: redis
