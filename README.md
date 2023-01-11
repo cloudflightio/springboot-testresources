@@ -233,7 +233,7 @@ This will create a MariaDB container based on `mariadb:10.3` with the default us
 
 ````kotlin
 dependencies {
-    testResourcesImplementation ("io.cloudflight.testresources.springboot:springboot-testresources-jdbc-mariadb:0.1.1")
+    testResourcesImplementation ("io.cloudflight.testresources.springboot:springboot-testresources-jdbc-mariadb:0.1.2")
 }
 ````
 
@@ -250,7 +250,7 @@ dependencies {
 
 ````kotlin
 dependencies {
-    testResourcesImplementation ("io.cloudflight.testresources.springboot:springboot-testresources-jdbc-postgres:0.1.1")
+    testResourcesImplementation ("io.cloudflight.testresources.springboot:springboot-testresources-jdbc-postgres:0.1.2")
 }
 ````
 
@@ -268,7 +268,7 @@ dependencies {
 
 ````kotlin
 dependencies {
-    testResourcesImplementation ("io.cloudflight.testresources.springboot:springboot-testresources-minio:0.1.1")
+    testResourcesImplementation ("io.cloudflight.testresources.springboot:springboot-testresources-minio:0.1.2")
 }
 ````
 
@@ -285,7 +285,7 @@ dependencies {
 
 ````kotlin
 dependencies {
-    testResourcesImplementation ("io.cloudflight.testresources.springboot:springboot-testresources-rabbitmq:0.1.1")
+    testResourcesImplementation ("io.cloudflight.testresources.springboot:springboot-testresources-rabbitmq:0.1.2")
 }
 ````
 
@@ -302,9 +302,25 @@ dependencies {
 
 ````kotlin
 dependencies {
-    testResourcesImplementation ("io.cloudflight.testresources.springboot:springboot-testresources-redis:0.1.1")
+    testResourcesImplementation ("io.cloudflight.testresources.springboot:springboot-testresources-redis:0.1.2")
 }
 ````
 
 * **Provided properties**:
   * `spring.data.redis.url`
+
+## Azurite
+
+* **Module-ID**: azurite
+* **Default-Image**: mcr.microsoft.com/azure-storage/azurite
+
+````kotlin
+dependencies {
+    testResourcesImplementation ("io.cloudflight.testresources.springboot:springboot-testresources-azurite:0.1.2")
+}
+````
+
+* **Provided properties**:
+  * `spring.cloud.azure.storage.blob.account-name`
+  * `spring.cloud.azure.storage.blob.account-key`
+  * `spring.cloud.azure.storage.blob.endpoint`

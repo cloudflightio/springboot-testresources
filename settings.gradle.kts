@@ -4,6 +4,7 @@ plugins {
 
 rootProject.name = "springboot-testresources"
 
+include("springboot-testresources-azurite")
 include("springboot-testresources-client")
 include("springboot-testresources-minio")
 include("springboot-testresources-jdbc")
@@ -14,6 +15,7 @@ include("springboot-testresources-redis")
 
 include("testprojects:jdbc:mariadb")
 include("testprojects:jdbc:postgres")
+include("testprojects:azurite")
 include("testprojects:minio")
 include("testprojects:rabbitmq")
 include("testprojects:redis")
