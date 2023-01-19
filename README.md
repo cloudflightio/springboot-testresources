@@ -243,6 +243,32 @@ dependencies {
   * `spring.datasource.password`
   * `spring.datasource.driver-class-name`
 
+## Microsoft SQL Server
+
+### MSSQL specific:
+Make sure to add the following property to your ```application-test.yml``` to accept the MSSQL Server License Agreement:
+```yml
+test-resources:
+  containers:
+    mssql:
+      accept-license: true
+```
+
+* **Module-ID**: mssql
+* **Default-Image**: mcr.microsoft.com/mssql/server:2019-CU16-GDR1-ubuntu-20.04
+
+````kotlin
+dependencies {
+    testResourcesImplementation ("io.cloudflight.testresources.springboot:springboot-testresources-jdbc-mssql:0.1.2")
+}
+````
+
+* **Provided properties**:
+  * `spring.datasource.url`
+  * `spring.datasource.username`
+  * `spring.datasource.password`
+  * `spring.datasource.driver-class-name`
+
 ## Postgres
 
 * **Module-ID**: postgres
