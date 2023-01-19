@@ -1,0 +1,9 @@
+test-resources:
+  containers:
+    mssql:
+      accept-license: true
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
