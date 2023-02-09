@@ -350,3 +350,19 @@ dependencies {
   * `spring.cloud.azure.storage.blob.account-name`
   * `spring.cloud.azure.storage.blob.account-key`
   * `spring.cloud.azure.storage.blob.endpoint`
+
+## Mailhog
+
+* **Module-ID**: mailhog
+* **Default-Image**: mailhog/mailhog
+
+````kotlin
+dependencies {
+    testResourcesImplementation ("io.cloudflight.testresources.springboot:springboot-testresources-mailhog:0.1.2")
+}
+````
+
+* **Provided properties**:
+  * `spring.mail.host`
+  * `spring.mail.port`
+  * `test-resources.mailhog.api-url`
