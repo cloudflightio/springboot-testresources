@@ -1,5 +1,5 @@
 plugins {
-    id("io.cloudflight.autoconfigure-settings") version "0.8.11"
+    id("io.cloudflight.autoconfigure-settings") version "0.9.1"
 }
 
 rootProject.name = "springboot-testresources"
