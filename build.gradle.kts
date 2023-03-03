@@ -19,6 +19,11 @@ subprojects {
     repositories {
         mavenCentral()
     }
+    configurations {
+        all {
+            exclude(group = "junit")
+        }
+    }
 
     if (!this.path.startsWith(":testprojects")) {
         plugins.apply(MavenPublishPlugin::class)
@@ -26,7 +31,6 @@ subprojects {
     }
 
     afterEvaluate {
-
         if (this.subprojects.isEmpty()) {
             dependencies {
                 "testImplementation"(libs.jupiter.api)
@@ -40,6 +44,7 @@ subprojects {
             if (!name.endsWith("-client")) {
                 dependencies {
                     "implementation"(libs.micronaut.testresources.testcontainers)
+                    "implementation"(libs.testcontainers.junit4.mock)
                 }
             }
 
