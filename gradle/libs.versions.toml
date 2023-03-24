@@ -14,5 +14,5 @@ jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "j
 jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit" }
 
 assertj = { module = "org.assertj:assertj-core", version = "3.23.1" }
-
+testcontainers-elasticsearch = { module = "org.testcontainers:elasticsearch", version = "" }
 testcontainers-junit4-mock = { module = "io.quarkus:quarkus-junit4-mock", version = "2.9.2.Final" }
