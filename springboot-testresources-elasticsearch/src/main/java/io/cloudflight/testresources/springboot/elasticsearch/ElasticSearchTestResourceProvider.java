@@ -1,17 +1,24 @@
 package io.cloudflight.testresources.springboot.elasticsearch;
 
 import io.micronaut.testresources.testcontainers.AbstractTestContainersProvider;
-import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.elasticsearch.ElasticsearchContainer;
 import org.testcontainers.utility.DockerImageName;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class ElasticSearchTestResourceProvider extends AbstractTestContainersProvider<ElasticsearchContainer> {
 
-    public static final String ELASTICSEARCH_HOSTS = "elasticsearch.http-hosts";
-    public static final String SIMPLE_NAME = "elasticsearch";
-    public static final String DEFAULT_IMAGE = "docker.elastic.co/elasticsearch/elasticsearch";
+    private static final String SIMPLE_NAME = "elasticsearch";
+    private static final String DEFAULT_IMAGE = "docker.elastic.co/elasticsearch/elasticsearch";
+    private static final String DEFAULT_TAG = "8.4.3";
+    private static final String PREFIX = "spring.elasticsearch";
+    private static final String URIS = "uris";
+    private static final String PASSWORD = "password";
+    private static final String ENV_PASSWORD = "ELASTIC_PASSWORD";
+    private static final List<String> SUPPORTED_LIST = Collections.unmodifiableList(
+            Arrays.asList(URIS, PASSWORD)
+    );
 
     @Override
     protected String getSimpleName() {
@@ -25,6 +32,10 @@ public class ElasticSearchTestResourceProvider extends AbstractTestContainersPro
 
     @Override
     protected ElasticsearchContainer createContainer(DockerImageName imageName, Map<String, Object> requestedProperties, Map<String, Object> testResourcesConfiguration) {
+        if ("latest".equals(imageName.getVersionPart())) {
+            // ElasticSearch does't provide a latest tag, so we use a hardcoded version
+            imageName = imageName.withTag(DEFAULT_TAG);
+        }
         ElasticsearchContainer container = new ElasticsearchContainer(imageName);
         container.withEnv("xpack.security.enabled", "false");
         return container;
@@ -32,19 +43,27 @@ public class ElasticSearchTestResourceProvider extends AbstractTestContainersPro
 
     @Override
     protected Optional<String> resolveProperty(String propertyName, ElasticsearchContainer container) {
-        if (ELASTICSEARCH_HOSTS.equals(propertyName)) {
-            return Optional.of("http://" + container.getHttpHostAddress());
-        }
-        return Optional.empty();
+        String value = switch (configurationPropertyFrom(propertyName)) {
+            case URIS -> container.getHttpHostAddress();
+            case PASSWORD -> container.getEnvMap().get(ENV_PASSWORD);
+            default -> null;
+        };
+        return Optional.ofNullable(value);
+    }
+
+    private String configurationPropertyFrom(String expression) {
+        String[] propertyParts = expression.split("\\.");
+        return propertyParts[propertyParts.length - 1];
     }
 
     @Override
-    protected boolean shouldAnswer(String propertyName, Map<String, Object> requestedProperties, Map<String, Object> testResourcesConfiguration) {
-        return ELASTICSEARCH_HOSTS.equals(propertyName);
+    public boolean shouldAnswer(String propertyName, Map<String, Object> requestedProperties, Map<String, Object> testResourcesConfiguration) {
+        return propertyName.startsWith(PREFIX);
     }
 
     @Override
     public List<String> getResolvableProperties(Map<String, Collection<String>> propertyEntries, Map<String, Object> testResourcesConfig) {
-        return Collections.singletonList(ELASTICSEARCH_HOSTS);
+        return SUPPORTED_LIST.stream().map(p -> PREFIX + "." + p).collect(Collectors.toList());
     }
+
 }
