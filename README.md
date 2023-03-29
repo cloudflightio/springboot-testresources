@@ -379,4 +379,5 @@ dependencies {
 ````
 
 * **Provided properties**:
-  * `elasticsearch.http-hosts`
+  * `spring.elasticsearch.uris`
+  * `spring.elasticsearch.password`
