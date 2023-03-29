@@ -366,3 +366,18 @@ dependencies {
   * `spring.mail.host`
   * `spring.mail.port`
   * `test-resources.mailhog.api-url`
+
+## Elasticsearch
+
+* **Module-ID**: elasticsearch
+* **Default-Image**: docker.elastic.co/elasticsearch/elasticsearch
+
+````kotlin
+dependencies {
+    testResourcesImplementation ("io.cloudflight.testresources.springboot:springboot-testresources-elasticsearch:0.1.2")
+}
+````
+
+* **Provided properties**:
+  * `spring.elasticsearch.uris`
+  * `spring.elasticsearch.password`
