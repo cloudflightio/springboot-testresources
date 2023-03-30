@@ -1,5 +1,5 @@
 [versions]
-micronaut-testresources = "1.2.3"
+micronaut-testresources = "1.2.5"
 spring-boot = "3.0.3"
 junit = "5.8.1"
 
