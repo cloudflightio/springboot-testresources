@@ -1,6 +1,6 @@
 [versions]
 micronaut-testresources = "1.2.5"
-spring-boot = "3.0.3"
+spring-boot = "3.0.5"
 junit = "5.8.1"
 
 [libraries]
@@ -9,6 +9,7 @@ micronaut-testresources-client = { module = "io.micronaut.testresources:micronau
 micronaut-testresources-testcontainers = { module = "io.micronaut.testresources:micronaut-test-resources-testcontainers", version.ref = "micronaut-testresources" }
 
 spring-boot = { module = "org.springframework.boot:spring-boot", version.ref = "spring-boot" }
+spring-bootbom = { module = "org.springframework.boot:spring-boot-dependencies", version.ref = "spring-boot" }
 
 jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit" }
 jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit" }
