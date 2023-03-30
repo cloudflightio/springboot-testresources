@@ -2,7 +2,7 @@ plugins {
     `maven-publish`
     id("io.github.gradle-nexus.publish-plugin") version "1.1.0"
     signing
-    id("io.micronaut.test-resources") version "3.6.7" apply (false)
+    id("io.micronaut.test-resources") version "3.7.7" apply (false)
 }
 
 description = "Test-Resources for Spring Boot"
