@@ -3,7 +3,9 @@ plugins {
 }
 
 dependencies {
-    implementation("com.azure.spring:spring-cloud-azure-starter-storage-blob:6.0.0-beta.4")
+    implementation("com.azure.spring:spring-cloud-azure-starter-storage-blob:5.0.0")
+
+
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 
