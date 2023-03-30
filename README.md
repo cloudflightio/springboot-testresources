@@ -43,7 +43,7 @@ Go to your `build.gradle.kts`:
 
 ````kotlin
 plugins {
-    id("io.micronaut.test-resources") version "3.6.7"
+    id("io.micronaut.test-resources") version "3.7.7"
 }
 ````
 
@@ -52,7 +52,7 @@ In multi-module projects ensure that the plugin is applied on every module (espe
 Then, add this to your `gradle.properties`:
 
 ````properties
-micronautVersion=3.6.0
+micronautVersion=3.8.7
 ````
 
 Next thing is to go to the module which contains your Spring Boot application 
@@ -88,8 +88,8 @@ To give you an even better overview, here is a full example of a minimalistic Sp
 
 ````kotlin
 plugins {
-    id("io.cloudflight.autoconfigure-gradle") version "0.8.3"
-    id("io.micronaut.test-resources") version "3.6.7"
+    id("io.cloudflight.autoconfigure-gradle") version "0.9.4"
+    id("io.micronaut.test-resources") version "3.7.7"
 }
 
 version = "0.1"
@@ -233,7 +233,7 @@ This will create a MariaDB container based on `mariadb:10.3` with the default us
 
 ````kotlin
 dependencies {
-    testResourcesImplementation ("io.cloudflight.testresources.springboot:springboot-testresources-jdbc-mariadb:0.1.2")
+    testResourcesImplementation ("io.cloudflight.testresources.springboot:springboot-testresources-jdbc-mariadb:0.2.1")
 }
 ````
 
@@ -259,7 +259,7 @@ test-resources:
 
 ````kotlin
 dependencies {
-    testResourcesImplementation ("io.cloudflight.testresources.springboot:springboot-testresources-jdbc-mssql:0.1.2")
+    testResourcesImplementation ("io.cloudflight.testresources.springboot:springboot-testresources-jdbc-mssql:0.2.1")
 }
 ````
 
@@ -276,7 +276,7 @@ dependencies {
 
 ````kotlin
 dependencies {
-    testResourcesImplementation ("io.cloudflight.testresources.springboot:springboot-testresources-jdbc-postgres:0.1.2")
+    testResourcesImplementation ("io.cloudflight.testresources.springboot:springboot-testresources-jdbc-postgres:0.2.1")
 }
 ````
 
@@ -294,7 +294,7 @@ dependencies {
 
 ````kotlin
 dependencies {
-    testResourcesImplementation ("io.cloudflight.testresources.springboot:springboot-testresources-minio:0.1.2")
+    testResourcesImplementation ("io.cloudflight.testresources.springboot:springboot-testresources-minio:0.2.1")
 }
 ````
 
@@ -311,7 +311,7 @@ dependencies {
 
 ````kotlin
 dependencies {
-    testResourcesImplementation ("io.cloudflight.testresources.springboot:springboot-testresources-rabbitmq:0.1.2")
+    testResourcesImplementation ("io.cloudflight.testresources.springboot:springboot-testresources-rabbitmq:0.2.1")
 }
 ````
 
@@ -328,7 +328,7 @@ dependencies {
 
 ````kotlin
 dependencies {
-    testResourcesImplementation ("io.cloudflight.testresources.springboot:springboot-testresources-redis:0.1.2")
+    testResourcesImplementation ("io.cloudflight.testresources.springboot:springboot-testresources-redis:0.2.1")
 }
 ````
 
@@ -342,7 +342,7 @@ dependencies {
 
 ````kotlin
 dependencies {
-    testResourcesImplementation ("io.cloudflight.testresources.springboot:springboot-testresources-azurite:0.1.2")
+    testResourcesImplementation ("io.cloudflight.testresources.springboot:springboot-testresources-azurite:0.2.1")
 }
 ````
 
@@ -358,7 +358,7 @@ dependencies {
 
 ````kotlin
 dependencies {
-    testResourcesImplementation ("io.cloudflight.testresources.springboot:springboot-testresources-mailhog:0.1.2")
+    testResourcesImplementation ("io.cloudflight.testresources.springboot:springboot-testresources-mailhog:0.2.1")
 }
 ````
 
@@ -374,7 +374,7 @@ dependencies {
 
 ````kotlin
 dependencies {
-    testResourcesImplementation ("io.cloudflight.testresources.springboot:springboot-testresources-elasticsearch:0.1.2")
+    testResourcesImplementation ("io.cloudflight.testresources.springboot:springboot-testresources-elasticsearch:0.2.1")
 }
 ````
 
