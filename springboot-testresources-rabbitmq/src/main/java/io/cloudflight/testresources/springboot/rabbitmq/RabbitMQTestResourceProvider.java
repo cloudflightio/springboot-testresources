@@ -6,6 +6,9 @@ import org.testcontainers.utility.DockerImageName;
 
 import java.util.*;
 
+/**
+ * Test container provider for RabbitMQ.
+ */
 public class RabbitMQTestResourceProvider extends AbstractTestContainersProvider<RabbitMQContainer> {
 
     private static final String RABBITMQ_HOST = "spring.rabbitmq.host";

@@ -9,5 +9,6 @@ dependencies {
     testImplementation("org.awaitility:awaitility")
 
     testRuntimeOnly(project(":springboot-testresources-client"))
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
     testResourcesImplementation(project(":springboot-testresources-rabbitmq"))
 }

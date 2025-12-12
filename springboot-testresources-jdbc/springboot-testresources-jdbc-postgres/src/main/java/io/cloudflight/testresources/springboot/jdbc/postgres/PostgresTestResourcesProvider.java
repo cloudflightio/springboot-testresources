@@ -6,6 +6,9 @@ import org.testcontainers.utility.DockerImageName;
 
 import java.util.Map;
 
+/**
+ * Test container provider for PostgreSQL.
+ */
 public class PostgresTestResourcesProvider extends AbstractJdbcTestResourceProvider<PostgreSQLContainer<?>> {
 
     private static final String DEFAULT_IMAGE = "postgres";

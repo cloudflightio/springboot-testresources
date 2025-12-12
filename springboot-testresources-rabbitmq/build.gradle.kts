@@ -1,5 +1,6 @@
 description = "Spring Boot TestResourceProvider for RabbitMQ"
 
 dependencies {
-    implementation("org.testcontainers:rabbitmq")
+    implementation(libs.testcontainers.rabbitmq)
+    testImplementation(libs.micronaut.core)
 }

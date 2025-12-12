@@ -6,6 +6,9 @@ import org.testcontainers.utility.DockerImageName;
 
 import java.util.Map;
 
+/**
+ * Test container provider for MariaDB.
+ */
 public class MariaDbTestResourcesProvider extends AbstractJdbcTestResourceProvider<MariaDBContainer<?>> {
 
     private static final String DEFAULT_IMAGE = "mariadb";

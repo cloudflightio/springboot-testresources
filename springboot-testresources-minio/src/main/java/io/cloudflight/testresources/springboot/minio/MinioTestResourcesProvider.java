@@ -6,6 +6,9 @@ import org.testcontainers.utility.DockerImageName;
 
 import java.util.*;
 
+/**
+ * Test container provider for Minio.
+ */
 public class MinioTestResourcesProvider extends AbstractTestContainersProvider<GenericContainer<?>> {
 
     private static final String MINIO_URL = "minio.url";

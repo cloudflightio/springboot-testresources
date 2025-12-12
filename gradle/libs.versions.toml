@@ -1,12 +1,21 @@
 [versions]
-micronaut-testresources = "1.2.5"
-spring-boot = "3.0.5"
-junit = "5.8.1"
+micronaut-testresources = "1.2.6"
+spring-boot = "3.5.7"
+quarkus-junit-mock = "3.30.3"
+micronaut = "3.8.7"
+
+# Align JUnit with Gradle 8.10.2 bundled JUnit Platform (avoid launcher/engine mismatch)
+junit = "5.9.1"
+assertj = "3.27.6"
+azurite = "5.24.1"
 
 [libraries]
 
 micronaut-testresources-client = { module = "io.micronaut.testresources:micronaut-test-resources-client", version.ref = "micronaut-testresources" }
 micronaut-testresources-testcontainers = { module = "io.micronaut.testresources:micronaut-test-resources-testcontainers", version.ref = "micronaut-testresources" }
+micronaut-bom = { module = "io.micronaut:micronaut-bom", version.ref = "micronaut" }
+micronaut-core = { module = "io.micronaut:micronaut-core", version.ref = "micronaut" }
+micronaut-http-client = { module = "io.micronaut:micronaut-http-client", version.ref = "micronaut" }
 
 spring-boot = { module = "org.springframework.boot:spring-boot", version.ref = "spring-boot" }
 spring-bootbom = { module = "org.springframework.boot:spring-boot-dependencies", version.ref = "spring-boot" }
@@ -14,6 +23,13 @@ spring-bootbom = { module = "org.springframework.boot:spring-boot-dependencies",
 jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit" }
 jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit" }
 
-assertj = { module = "org.assertj:assertj-core", version = "3.23.1" }
-testcontainers-elasticsearch = { module = "org.testcontainers:elasticsearch", version = "" }
-testcontainers-junit4-mock = { module = "io.quarkus:quarkus-junit4-mock", version = "2.9.2.Final" }
+assertj = { module = "org.assertj:assertj-core", version.ref = "assertj" }
+testcontainers-elasticsearch = { module = "org.testcontainers:elasticsearch" }
+testcontainers-jdbc = { module = "org.testcontainers:jdbc" }
+testcontainers-mariadb = { module = "org.testcontainers:mariadb" }
+testcontainers-mssqlserver = { module = "org.testcontainers:mssqlserver" }
+testcontainers-postgresql = { module = "org.testcontainers:postgresql" }
+testcontainers-rabbitmq = { module = "org.testcontainers:rabbitmq" }
+testcontainers-junit4-mock = { module = "io.quarkus:quarkus-junit4-mock", version.ref = "quarkus-junit-mock" }
+
+spring-cloud-azure-starter-storage-blob = { module = "com.azure.spring:spring-cloud-azure-starter-storage-blob", version.ref = "azurite" }

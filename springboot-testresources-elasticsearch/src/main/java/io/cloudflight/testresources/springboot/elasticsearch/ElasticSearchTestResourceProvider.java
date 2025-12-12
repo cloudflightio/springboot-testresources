@@ -7,6 +7,9 @@ import org.testcontainers.utility.DockerImageName;
 import java.util.*;
 import java.util.stream.Collectors;
 
+/**
+ * Test container provider for ElasticSearch.
+ */
 public class ElasticSearchTestResourceProvider extends AbstractTestContainersProvider<ElasticsearchContainer> {
 
     private static final String SIMPLE_NAME = "elasticsearch";

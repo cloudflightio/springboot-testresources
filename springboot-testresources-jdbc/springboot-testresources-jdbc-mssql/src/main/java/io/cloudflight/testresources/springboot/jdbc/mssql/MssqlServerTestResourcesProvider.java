@@ -2,11 +2,16 @@ package io.cloudflight.testresources.springboot.jdbc.mssql;
 
 import io.cloudflight.testresources.springboot.jdbc.AbstractJdbcTestResourceProvider;
 import org.testcontainers.containers.MSSQLServerContainer;
+import org.testcontainers.containers.wait.strategy.Wait;
 import org.testcontainers.utility.DockerImageName;
 import org.testcontainers.utility.LicenseAcceptance;
 
+import java.time.Duration;
 import java.util.Map;
 
+/**
+ * Test container provider for Microsoft SQL Server.
+ */
 public class MssqlServerTestResourcesProvider extends AbstractJdbcTestResourceProvider<MSSQLServerContainer<?>> {
 
     private static final String DEFAULT_IMAGE = "mcr.microsoft.com/mssql/server:2019-CU16-GDR1-ubuntu-20.04";
@@ -28,6 +33,13 @@ public class MssqlServerTestResourcesProvider extends AbstractJdbcTestResourcePr
         return createMSSQLContainer(imageName, getSimpleName(), testResourcesConfiguration);
     }
 
+    /**
+     * Creates a new Microsoft SQL Server container.
+     * @param imageName .
+     * @param simpleName .
+     * @param testResourcesConfiguration .
+     * @return The created container.
+     */
     public static MSSQLServerContainer<?> createMSSQLContainer(DockerImageName imageName, String simpleName, Map<String, Object> testResourcesConfiguration) {
         MSSQLServerContainer<?> container = new MSSQLServerContainer<>(imageName);
         String licenseKey = "containers." + simpleName + ".accept-license";

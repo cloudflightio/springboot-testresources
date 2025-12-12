@@ -11,6 +11,9 @@ import java.util.Map;
 
 import static java.util.Collections.emptyMap;
 
+/**
+ * Property source that exposes the test resources configuration as properties.
+ */
 public class TestResourcesPropertySource extends PropertySource<TestResourcesClient> {
 
     private static final String NAME = "testresources";
@@ -18,6 +21,11 @@ public class TestResourcesPropertySource extends PropertySource<TestResourcesCli
     private final ConfigurableEnvironment environment;
     private static Map<String, Object> testResourcesConfiguration;
 
+    /**
+     * Constructor.
+     * @param client .
+     * @param environment .
+     */
     public TestResourcesPropertySource(TestResourcesClient client, ConfigurableEnvironment environment) {
         super(NAME, client);
         this.environment = environment;
