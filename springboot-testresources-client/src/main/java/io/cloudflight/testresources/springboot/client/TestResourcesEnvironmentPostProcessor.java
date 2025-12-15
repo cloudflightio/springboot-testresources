@@ -37,10 +37,7 @@ public class TestResourcesEnvironmentPostProcessor implements EnvironmentPostPro
         if (resourcesClient.isPresent()) {
             environment.getPropertySources().addFirst(new TestResourcesPropertySource(resourcesClient.get(), environment));
         } else {
-            // If the Test Resources service is not available, do not fail the context startup.
-            // Simply proceed without registering the property source. This allows tests/projects
-            // which don't rely on the Test Resources service to run normally, and avoids
-            // hard failures when the build plugin isn't active for a given task.
+            throw new ApplicationContextException("TestResources Service could not be found. Is the Test-Resources Build plugin for Maven or Gradle active?");
         }
     }
 }

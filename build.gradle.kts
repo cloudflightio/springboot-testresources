@@ -44,7 +44,6 @@ subprojects {
             if (!name.endsWith("-client")) {
                 dependencies {
                     "implementation"(libs.micronaut.testresources.testcontainers)
-                    // Compile against Micronaut Core, but do not leak it at runtime to avoid clashes with the TestResources server
                     "compileOnly"(libs.micronaut.core)
                     "implementation"(libs.testcontainers.junit4.mock)
                 }
