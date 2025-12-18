@@ -7,14 +7,38 @@ import org.testcontainers.utility.DockerImageName;
 
 import java.util.*;
 
+/**
+ * Test container provider for Mailhog.
+ */
 public class MailhogTestResourceProvider extends AbstractTestContainersProvider<GenericContainer<?>> {
+    /**
+     * Host name
+     */
     public static final String MAILHOG_HOST = "spring.mail.host";
+    /**
+     *  SMTP port
+     */
     public static final String MAILHOG_SMTP_PORT = "spring.mail.port";
+    /**
+     * API URL
+     */
     public static final String MAILHOG_API_URL = TEST_RESOURCES_PROPERTY + ".mailhog.api-url";
+    /**
+     * Simple name of the test resource.
+     */
     public static final String SIMPLE_NAME = "mailhog";
+    /**
+     * Default Mailhog image.
+     */
     public static final String DEFAULT_IMAGE = "mailhog/mailhog";
 
+    /**
+     * Mailhog SMTP port.
+     */
     public static final int SMTP_PORT = 1025;
+    /**
+     * Mailhog API port.
+     */
     public static final int API_PORT = 8025;
 
     private static final Set<String> SUPPORTED_PROPERTIES = Set.of(

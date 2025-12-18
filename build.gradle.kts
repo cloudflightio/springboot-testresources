@@ -44,6 +44,7 @@ subprojects {
             if (!name.endsWith("-client")) {
                 dependencies {
                     "implementation"(libs.micronaut.testresources.testcontainers)
+                    "compileOnly"(libs.micronaut.core)
                     "implementation"(libs.testcontainers.junit4.mock)
                 }
             }

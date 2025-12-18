@@ -9,7 +9,7 @@ import java.util.*
 
 @SpringBootTest
 class ApplicationTest(
-    @Autowired private val blobServiceClientBuilder: BlobServiceClientBuilder
+    @param:Autowired private val blobServiceClientBuilder: BlobServiceClientBuilder
 ) {
 
     @Test

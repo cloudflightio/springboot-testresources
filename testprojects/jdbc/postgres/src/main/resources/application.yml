@@ -2,8 +2,9 @@ spring:
   jpa:
     hibernate:
       ddl-auto: create-drop
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
 
 test-resources:
   containers:
-    mariadb:
-      image-name: mariadb:10.3
+    postgres:
+      image-name: postgres:16-alpine

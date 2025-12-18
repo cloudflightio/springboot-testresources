@@ -11,5 +11,6 @@ dependencies {
     runtimeOnly("org.mariadb.jdbc:mariadb-java-client")
 
     testRuntimeOnly(project(":springboot-testresources-client"))
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
     testResourcesImplementation(project(":springboot-testresources-jdbc:springboot-testresources-jdbc-mariadb"))
 }

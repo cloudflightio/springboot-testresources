@@ -10,5 +10,6 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 
     testRuntimeOnly(project(":springboot-testresources-client"))
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
     testResourcesImplementation(project(":springboot-testresources-elasticsearch"))
 }

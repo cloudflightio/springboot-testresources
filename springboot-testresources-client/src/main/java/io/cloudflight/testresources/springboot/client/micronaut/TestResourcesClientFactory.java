@@ -18,6 +18,10 @@ import java.util.Optional;
  */
 public class TestResourcesClientFactory {
 
+    /**
+     * Tries to create a {@link TestResourcesClient} from the system properties.
+     * @return The {@link TestResourcesClient} if it could be created, otherwise {@link Optional#empty()}
+     */
     public static Optional<TestResourcesClient> fromSystemProperties() {
         String serverUri = System.getProperty(ConfigFinder.systemPropertyNameOf(TestResourcesClient.SERVER_URI));
         if (serverUri != null) {

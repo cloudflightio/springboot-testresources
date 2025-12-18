@@ -68,6 +68,11 @@ public abstract class AbstractJdbcTestResourceProvider<T extends JdbcDatabaseCon
         }
     }
 
+    /**
+     * Extracts the datasource property from the given expression.
+     * @param expression .
+     * @return The datasource property.
+     */
     protected static String datasourcePropertyFrom(String expression) {
         String remainder = expression.substring(1 + expression.indexOf('.'));
         return remainder.substring(1 + remainder.indexOf("."));

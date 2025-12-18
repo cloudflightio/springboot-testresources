@@ -13,6 +13,7 @@ dependencies {
     testImplementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1")
 
     testRuntimeOnly(project(":springboot-testresources-client"))
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
     testResourcesImplementation(project(":springboot-testresources-mailhog"))
 
 }

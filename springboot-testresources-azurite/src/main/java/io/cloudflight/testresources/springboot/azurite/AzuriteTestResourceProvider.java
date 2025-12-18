@@ -6,6 +6,9 @@ import org.testcontainers.utility.DockerImageName;
 
 import java.util.*;
 
+/**
+ * Test container provider for Azure Blob Storage Emulator.
+ */
 public class AzuriteTestResourceProvider extends AbstractTestContainersProvider<GenericContainer<?>> {
 
     private static final String PREFIX = "spring.cloud.azure.storage.blob.";

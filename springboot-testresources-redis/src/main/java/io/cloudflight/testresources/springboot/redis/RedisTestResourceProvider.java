@@ -6,11 +6,26 @@ import org.testcontainers.utility.DockerImageName;
 
 import java.util.*;
 
+/**
+ * Test container provider for Redis.
+ */
 public class RedisTestResourceProvider extends AbstractTestContainersProvider<GenericContainer<?>> {
 
+    /**
+     * Redis URI.
+     */
     public static final String REDIS_URI = "spring.data.redis.url";
+    /**
+     * Default image name.
+     */
     public static final String DEFAULT_IMAGE = "redis";
+    /**
+     * Simple name of the test resource.
+     */
     public static final String SIMPLE_NAME = "redis";
+    /**
+     * Redis port.
+     */
     public static final int REDIS_PORT = 6379;
 
     private static final Set<String> SUPPORTED_PROPERTIES;
