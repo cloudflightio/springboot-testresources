@@ -16,6 +16,7 @@ micronaut-core = { module = "io.micronaut:micronaut-core", version.ref = "micron
 micronaut-http-client = { module = "io.micronaut:micronaut-http-client", version.ref = "micronaut" }
 
 spring-boot = { module = "org.springframework.boot:spring-boot", version.ref = "spring-boot" }
+spring-bootbom = { module = "org.springframework.boot:spring-boot-dependencies", version.ref = "spring-boot" }
 
 jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit" }
 jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit" }
