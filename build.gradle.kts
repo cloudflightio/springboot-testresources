@@ -1,6 +1,6 @@
 plugins {
     `maven-publish`
-    id("io.github.gradle-nexus.publish-plugin") version "1.1.0"
+    id("io.github.gradle-nexus.publish-plugin") version "2.0.0"
     signing
     id("io.micronaut.test-resources") version "3.7.7" apply (false)
 }
