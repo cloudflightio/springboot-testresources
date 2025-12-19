@@ -53,6 +53,12 @@ subprojects {
                 publications {
                     create<MavenPublication>("maven") {
                         from(components["java"])
+                        versionMapping {
+                            // Ensure resolved versions are written to generated POMs
+                            allVariants {
+                                fromResolutionResult()
+                            }
+                        }
                         pom {
                             name.set(project.name)
                             description.set(project.description)
